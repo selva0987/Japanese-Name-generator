@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+    *{
+        color: aqua;
+    }
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(bg.jpg);
+
+}
+
+h1{
+    color: rgb(241, 238, 238);
+    font-size: xx-large;
+    
+}
+#convert{
+    margin-top: 10px;
+    color: black;
+}
+#number{
+  color: black;
+}
+
+ </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+        <h1> How many times you broken?</h1>
+        <p>Month by numbers</p>
+        <input id="number" type="number" min="1" max="12" placeholder="Enter a number between 1 and 12">
+        <br>
+        <button id="convert" onclick="convert()">want to see</button>
+        <p id="result"></p>
+    </div>
+   
+
+
+
+
+
+       <script>
+      
+// A function that takes a number between 1 and 12 and returns the corresponding month name
+function numberToMonth(num) {
+  // An array of month names
+  var months = ["one", "Two", "Infifity", "Never", "single", "Three", "four", "Infinity", "Single", "One", "Never", "Infinity"];
+  // Check if the input is a valid number
+  if (typeof num === "number" && num >= 1 && num <= 12) {
+    // Return the month name at the index of num - 1
+    return months[num - 1];
+  } else {
+    // Return an error message
+    return "Invalid input. Please enter a number between 1 and 12.";
+  }
+}
+
+// A function that gets the input value, calls the numberToMonth function, and displays the result
+function convert() {
+  // Get the input element by its id
+  var input = document.getElementById("number");
+  // Get the input value as a number
+  var num = Number(input.value);
+  // Call the numberToMonth function with the input value
+  var month = numberToMonth(num);
+  // Get the result element by its id
+  var result = document.getElementById("result");
+  // Display the result
+  result.textContent = month;
+}
+
+        
+         
+  
+       </script>
+</body>
+</html>

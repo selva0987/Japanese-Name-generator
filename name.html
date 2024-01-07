@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Japanese Name Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-image: url(bg.jpg);
+      color: #fff;
+      margin-left: 50%;
+    margin-top: 20%;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    input[type=text] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 16px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: none;
+      background-color: #0078d7;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005a9e;
+    }
+    .result {
+      margin-top: 16px;
+      font-size: 24px;
+      font-weight: bold;
+      transform-style: 2s;
+    }
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <h1>Get your japanese character<h1>
+  <label for="name">Enter your name:</label>
+  <input type="text" id="name" placeholder="John Doe">
+  <button onclick="convertName()">Convert</button>
+  <div class="result" id="result"></div>
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    function convertToJapaneseName(name) {
+      // Replace all non-alphabetic characters with an empty string
+      name = name.replace(/[^a-zA-Z]/g, '');
+      // Convert the name to uppercase
+      name = name.toUpperCase();
+      // Convert each character to its Katakana equivalent
+      let katakanaName = '';
+      for (let i = 0; i < name.length; i++) {
+        let charCode = name.charCodeAt(i);
+        if (charCode >= 65 && charCode <= 90) {
+          katakanaName += String.fromCharCode(charCode + 0x60);
+        }
+      }
+      return katakanaName;
+    }
+
+    function convertName() {
+      let nameInput = document.getElementById('name');
+      let resultDiv = document.getElementById('result');
+      let name = nameInput.value.trim();
+      if (name.length >8) {
+        let japaneseName = convertToJapaneseName(name);
+        resultDiv.textContent = 'Sasuke uchiga';
+      }else if(name.length ==6) {
+        resultDiv.textContent = 'Itachi uchiga';
+
+      }else{
+        resultDiv.textContent = 'Obito uchiga'
+      }
+    }
+
+  </script>
+</body>
+</html>
